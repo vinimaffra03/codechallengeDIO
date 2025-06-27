@@ -26,9 +26,13 @@ email = input().strip()
 # TODO: Verifique as regras do e-mail:
 
 def email_valido():
-    if '@gmail.com' in email or '@outlook.com' in email:
+    if (
+        '@' in email
+        and not email.startswith('@')
+        and ' ' not in email
+        and email.endswith(('gmail.com', 'outlook.com'))
+    ):
         print('E-mail válido')
     else:
         print('E-mail inválido')
-
 email_valido()
